@@ -98,6 +98,7 @@ export default {
     manageInput(value) {
       if (!value) {
         this.stdout.push({prompt: {loc: this.currentLocation, text: ''}})
+        setTimeout(() => stdout.scrollTop = stdout.scrollHeight, 25)
         return
       }
       const command = value.split(' ')[0]
@@ -160,7 +161,6 @@ export default {
         case 'cd':
           if (!args|| !args.length || args[0] === '.' || args[0] === './') {
             this.currentLocation = '~'
-            return
           } else {
             this.stdout.push({text: `No such file or directory: ${args[0]}`, class: 'text-red-500'})
           }
