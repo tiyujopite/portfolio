@@ -249,7 +249,7 @@ export default {
 }
 
 #stdout {
-  max-height: 60vh;
+  max-height: 50vh;
   overflow-y: auto;
 }
 
