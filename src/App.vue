@@ -203,7 +203,7 @@ export default {
     </div>
     <div id="terminal" class="max-w-5xl p-2 rounded-xl bg-gray-900 w-full h-full border border-neutral-700"
     @click="focusInput">
-      <div id="stdout" class="flex flex-col gap-1 text-left whitespace-pre-wrap">
+      <div id="stdout" class="flex flex-col gap-1 text-left text-sm whitespace-pre-wrap">
         <template v-for="line in stdout">
           <div class="flex gap-2">
             <span v-if="line.prompt" class="text-green-400 font-semibold">{{ line.prompt.loc }}</span>
