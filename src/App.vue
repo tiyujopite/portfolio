@@ -188,10 +188,10 @@ export default {
 
 <template>
   <div id="main" class="max-w-5xl mx-auto p-2 flex flex-col items-center text-center gap-2 h-full">
-    <img class="logo border-2 border-white max-h-24 lg:max-h-96"
+    <img class="logo border-2 border-white mt-4 max-h-24 lg:max-h-96"
     src="https://www.gravatar.com/avatar/38215981cb9c9e28db73695b1f5d87b60c921f19c82a175bcf7cafe1a0c213d7?size=200"
     alt="avatar" />
-    <h1 class="text-3xl mt-4 font-bold">@tiyujopite</h1>
+    <h1 class="text-3xl mt-2 font-bold">@tiyujopite</h1>
     <h1 class="text-2xl font-semibold">José Antonio Díaz Miralles</h1>
     <div class="flex flex-wrap gap-4">
       <template v-for="item in fileItems">
