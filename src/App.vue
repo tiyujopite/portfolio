@@ -96,6 +96,7 @@ export default {
       }
     },
     manageInput(value) {
+      const stdout = document.getElementById('stdout')
       if (!value) {
         this.stdout.push({prompt: {loc: this.currentLocation, text: ''}})
         setTimeout(() => stdout.scrollTop = stdout.scrollHeight, 25)
@@ -103,7 +104,6 @@ export default {
       }
       const command = value.split(' ')[0]
       const args = value.split(' ').slice(1)
-      const stdout = document.getElementById('stdout')
       this.stdout.push({prompt: {loc: this.currentLocation, text: value}})
       switch (command) {
         case 'help':
@@ -187,13 +187,13 @@ export default {
 </script>
 
 <template>
-  <div id="main" class="max-w-5xl mx-auto p-5 flex flex-col items-center text-center gap-2 h-full">
-    <img class="logo border-2 border-white"
+  <div id="main" class="max-w-5xl mx-auto p-2 flex flex-col items-center text-center gap-2 h-full">
+    <img class="logo border-2 border-white max-h-24 lg:max-h-96"
     src="https://www.gravatar.com/avatar/38215981cb9c9e28db73695b1f5d87b60c921f19c82a175bcf7cafe1a0c213d7?size=200"
     alt="avatar" />
     <h1 class="text-3xl mt-4 font-bold">@tiyujopite</h1>
     <h1 class="text-2xl font-semibold">José Antonio Díaz Miralles</h1>
-    <div class="flex gap-4">
+    <div class="flex flex-wrap gap-4">
       <template v-for="item in fileItems">
         <button @click="emulateInput(`cat ${item}.md`)">+{{item}}</button>
       </template>
@@ -201,15 +201,15 @@ export default {
         <button @click="emulateInput(item)">+{{item}}</button>
       </template>
     </div>
-    <div id="terminal" class="max-w-5xl m-2 p-4 rounded-xl bg-gray-900 w-full h-full border border-neutral-700"
+    <div id="terminal" class="max-w-5xl p-2 rounded-xl bg-gray-900 w-full h-full border border-neutral-700"
     @click="focusInput">
-      <div id="stdout" class="flex flex-col gap-1 text-left  whitespace-pre">
+      <div id="stdout" class="flex flex-col gap-1 text-left whitespace-pre-wrap">
         <template v-for="line in stdout">
           <div class="flex gap-2">
             <span v-if="line.prompt" class="text-green-400 font-semibold">{{ line.prompt.loc }}</span>
             <span v-if="line.prompt" class="text-green-400 font-semibold">$</span>
             <span v-if="line.prompt">{{ line.prompt.text }}</span>
-            <div :class="line.class">{{ line.text }}</div>
+            <div :class="`${line.class}`">{{ line.text }}</div>
           </div>
         </template>
       </div>
