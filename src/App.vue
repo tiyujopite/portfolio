@@ -191,8 +191,8 @@ export default {
     <img class="logo border-2 border-white mt-4 max-h-24 lg:max-h-96"
     src="https://www.gravatar.com/avatar/38215981cb9c9e28db73695b1f5d87b60c921f19c82a175bcf7cafe1a0c213d7?size=200"
     alt="avatar" />
-    <h1 class="text-3xl mt-2 font-bold">@tiyujopite</h1>
-    <h1 class="text-2xl font-semibold">José Antonio Díaz Miralles</h1>
+    <h1 class="text-xl md:text-3xl mt-2 font-bold">@tiyujopite</h1>
+    <h1 class="text-lg md:text-2xl font-semibold">José Antonio Díaz Miralles</h1>
     <div class="flex flex-wrap gap-4">
       <template v-for="item in fileItems">
         <button @click="emulateInput(`cat ${item}.md`)">+{{item}}</button>
@@ -213,7 +213,7 @@ export default {
           </div>
         </template>
       </div>
-      <div class="flex gap-2 h-10 items-center">
+      <div class="flex gap-2 h-10 items-center text-sm">
         <span class="text-green-400 font-semibold">{{currentLocation}}</span>
         <span class="text-green-400 font-semibold">$</span>
         <input type="text" class="w-full bg-transparent border-none focus:outline-none m-0 p-0"
